@@ -1,0 +1,31 @@
+main{
+    display: flex;
+}
+
+div{
+    flex: 1;
+    min-height: 200px;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Coloring the divs */
+div:nth-child(1){background: linear-gradient(45deg, #228, #256);}
+div:nth-child(2){background: linear-gradient(45deg, #822, #bb6);}
+div:nth-child(3){background: linear-gradient(45deg, #282, #6b0);}
+
+@media (max-width: 767px)
+{
+    main{
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 768px)
+{
+    main{
+        flex-direction: row-reverse;
+    }
+}

@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    font-family: 'Roboto';
+}
+
+header{
+    height: 4.5rem;
+    background-color: black;
+    display: flex;
+}
+
+section{
+    height: calc(100vh - 4.5rem);
+    background-color: red;
+    display: flex;
+}
+
+section .left-col{
+    width: 45vw;
+    background-color: #FE5115;
+}
+
+section .right-col{
+    width: 55vw;
+    background-color: #E9EAEC;
+}
+
+.logo{
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 40px;
+}
+
+header > * {
+    flex: 1;
+}
+
+.nav-container{
+    flex: 2;
+}
+
+.logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
