@@ -55,13 +55,12 @@ class Boss extends Monster{
     super(hp, attackValue, name)
     this.isStrong = false
   }
-
 }
 
 let mainPlayer = new Player(20, 3, "Dani")
 let monster1 = new Slime(40, 3, 'Purple Slimerino')
-let monster2 = new Monster(30, 1, "Goblin")
-let monster3 = new Boss(30, 1, "Finalus Mortalus")
+let monster2 = new Slime(40, 3, 'Goblin')
+let monster3 = new Boss(130, 10, "Finalus Mortalus")
 
 mainPlayer.attack(monster1)
 monster1.attack(mainPlayer)
