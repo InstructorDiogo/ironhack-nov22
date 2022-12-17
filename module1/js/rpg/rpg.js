@@ -64,5 +64,3 @@ let monster3 = new Boss(130, 10, "Finalus Mortalus")
 
 mainPlayer.attack(monster1)
 monster1.attack(mainPlayer)
-
-
