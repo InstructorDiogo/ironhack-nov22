@@ -8,10 +8,8 @@ class Player {
   }
 
   attack(target){
-    
-      target.hp -= this.attackValue
-      console.log(`${target.name} lost ${this.attackValue} hp and stil has ${target.hp} remaining.`)
-        
+    target.hp -= this.attackValue
+    console.log(`${target.name} lost ${this.attackValue} hp and stil has ${target.hp} remaining.`) 
   }
 }
 
@@ -25,9 +23,8 @@ class Monster {
   }
 
   attack(target){
-    
-      target.hp -= this.attackValue
-      console.log(`${target.name} lost ${this.attackValue} hp and stil has ${target.hp} remaining.`)
+    target.hp -= this.attackValue
+    console.log(`${target.name} lost ${this.attackValue} hp and stil has ${target.hp} remaining.`)
   }
 }
 
