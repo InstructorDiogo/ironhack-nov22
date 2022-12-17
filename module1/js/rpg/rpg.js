@@ -14,7 +14,6 @@ class Player {
 }
 
 class Monster {
-
   constructor(hp, attackValue, name)
   {
     this.hp = hp
