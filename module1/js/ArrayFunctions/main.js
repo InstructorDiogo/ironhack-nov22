@@ -137,3 +137,25 @@ let newBankAccounts = bankAccounts.map(function(element){
 console.log(bankAccounts)
 console.log(newBankAccounts)
 */
+
+
+// Some real case uses of the array functions
+/*
+
+// Using map to tax incomes.
+let incomes = [2000, 1000, 1200, 800, 900, 1600, 1800]
+
+// tax all the values in 20%
+let newIncomes = incomes.map(element => element * 0.8)
+
+// get all the value taxed (in total)
+let totalTax = incomes.reduce((totalAmount, amount) => totalAmount + amount ) * 0.2
+
+// get the average of all the values (using .reduce())
+let averageSalaries = incomes.reduce((totalAmount, amount) => totalAmount + amount) / incomes.length
+
+console.log(`Incomes with Tax: ${newIncomes}`)
+console.log(`Total Tax: ${totalTax}`)
+console.log(`Average: ${averageSalaries}`)
+
+*/
