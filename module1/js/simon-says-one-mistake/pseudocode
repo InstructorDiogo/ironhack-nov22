@@ -1,0 +1,104 @@
+
+computerNumbers = [ 4, 3, 4, 1, 2, 2, 1, 4 ]
+playerNumbers = [ 4, 3 ]
+
+isPlayerTurn = false
+
+highlight(color){
+
+    switch (color)
+    {
+        case 1:
+            changeHTMLRedToOn
+            setTimeout({changeHTMLRedToOff}, 200)
+            break;
+        case 2:
+            changeHTMLGreenToOn
+            setTimeout({changeHTMLRedToOff}, 200)
+            break;
+        case 3:
+            changeHTMLBlueToOn
+            setTimeout({changeHTMLRedToOff}, 200)
+            break;
+        case 4:
+            changeHTMLYellowToOn
+            setTimeout({changeHTMLRedToOff}, 200)
+            break;
+            
+    }
+   
+}
+
+doComputerPlays(){
+
+    newNumber = newNumber(1,4)
+    computerNumbers.push(newNumber)
+
+    computerNumbers.forEach(element, index => {
+
+        setTimeout({
+            
+            higlight(element)
+
+        }, index * 1000)
+
+    })
+
+}
+
+computerTurn(){
+
+    computerPlays.add(randomNumber)
+
+    doComputerPlays()
+
+
+    // the player's turn actually begins after the computerTurn, once isComputerTurn = false
+    isPlayerTurn = true
+}
+
+// wait for the player to click a button!
+playerClick(numberClicked){
+
+    if (!isPlayerTurn) return
+
+    higlight(numberClicked)
+
+    // check if playerNumbers is equal to computerNumbers "Sliced !!!""
+    addNumberToPlayerNumbers()
+    areArraysEqual = checkIfArraysAreEqual()
+
+    if (areArraysEqual) {
+        // do an animation
+        // wait for next player's move
+
+        if (playerNumber.length == computerNumbers.length)
+        {
+            isPlayerTurn = false
+            computerTurn()
+
+            // empty array please !!
+            playerNumbers = []
+        }
+    }
+    else
+    {
+        alert("game over!!")
+    }
+
+}
+
+checkIfArraysAreEqual(){
+    slicedNumbers = computerNumbers.slice(0, playerNumbers.length)
+
+    for (let i = 0; i < slicedNumbers.length; i++)
+    {
+        if (slicedNumbers[i] != playerNumbers[i])
+        {
+            return false
+        }
+    }
+
+    // here means no elements were different
+    return true
+}

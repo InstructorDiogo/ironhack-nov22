@@ -1,0 +1,24 @@
+
+body{
+    padding: 10% 30%
+}
+
+div{
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+}
+
+#square-one {
+    background-color: darkred;
+}
+#square-two {
+    background-color: darkgreen;
+}
+#square-three {
+    background-color: darkblue;
+}
+#square-four {
+    background-color: darkgoldenrod;
+}
