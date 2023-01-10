@@ -1,0 +1,53 @@
+body{
+    background-color: black;
+}
+
+.android{
+    position: relative;
+    display: inline-block;
+    animation-name: bouncy;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+.android-up{
+    filter: invert(44%) sepia(97%) saturate(456%) hue-rotate(147deg) brightness(98%) contrast(110%);
+}
+
+.android:first-child{
+    animation-duration: 6s;
+}
+.android:nth-child(2){
+    animation-duration: 2.5s;
+}
+.android:nth-child(3){
+    animation-duration: 3.5s;
+}
+.android:last-child{
+    animation-duration: 8s;
+}
+
+.android
+{
+    width: 140px;
+    height: 100px;
+    background-size: cover;
+    background-image: url("https://dionamite.pt/wp-content/uploads/2023/01/Android_1.png")
+}
+
+@keyframes bouncy {
+    0% {
+        top: 0;
+    }
+
+    50%
+    {
+        top: 50vh;
+    }
+    
+    100%
+    {
+        top: 0;
+    }
+}

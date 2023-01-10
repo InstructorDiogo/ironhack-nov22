@@ -1,0 +1,25 @@
+#main-button{
+    display: block;
+    margin: auto;
+    width: 200px;
+    height: 100px;
+}
+
+.blocks{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    justify-content: center;
+}
+
+.block{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    padding: 20px;
+    margin: 20px;
+}
+
+.highlighted-block{
+    background-color: yellow;
+}
