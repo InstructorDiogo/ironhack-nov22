@@ -1,0 +1,41 @@
+body{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+#main-menu,
+#game-over,
+#pause-game{
+
+    position: absolute;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    top: 20%;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+     
+}
+
+#game-over, #pause-game{
+    display: none;
+}
+
+#restart{
+    position: absolute;
+    bottom: -50px;
+    left: 40%;
+    transform: translateX(-50%);
+}
+
+#pause{
+    position: absolute;
+    bottom: -50px;
+    left: 60%;
+    transform: translateX(-50%);
+}
