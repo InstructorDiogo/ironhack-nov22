@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.poke-container {
+    width: 500px;
+    height: 500px;
+    border-radius: 30px;
+    background-color: rgb(216, 118, 134);
+    box-shadow: 5px 5px 15px #00000022;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.poke-container h1 {
+    color: white;
+}
+
+.poke-container img {
+    width: 50%;
+}
+
+.poke-container input {
+    text-align: center;
+    width: 200px;
+    height: 4em;
+    margin-bottom: 2em;
+    border-radius: 1em;
+    border: none;
+}
+
+.poke-container button {
+    cursor: pointer;
+    width: 200px;
+    height: 2em;
+    border-radius: 1em;
+    border: none;
+}
