@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <main>
+
+        {{#if error}}
+        <div id="error-message">
+            {{ error }}
+        </div>
+        {{/if}}
+
+        {{#if success}}
+        <div id="success-message">
+            {{ success }}
+        </div>
+        {{/if}}
+
+        <div id="options">
+
+            <form>
+
+                Filter the Todos
+
+                <div>
+                    <input type="text" placeholder="Word To Search" name="wordToSearch">
+                </div>
+                <div> Completed: </div>
+                <div>
+                    <label>Yes</label>
+                    <input type="radio" placeholder="isCompleted" value="true" name="completed">
+                    <label>No</label>
+                    <input type="radio" placeholder="isCompleted" value="false" name="completed">
+                </div>
+                <div>
+                    <input type="submit" value="Search it!">
+                </div>
+
+            </form>
+
+            <form method="POST">
+
+                Add a new Todo
+
+                <select name="userId">
+                    {{#each users}}
+                    <option value={{this.id}}>{{this.name}}</option>
+                    {{/each}}
+                </select>
+
+                <div>
+                    <input type="text" placeholder="title" name="title">
+                </div>
+
+
+                <div> Completed: </div>
+                <div>
+                    <label>Yes</label>
+                    <input type="radio" placeholder="isCompleted" value="true" name="completed">
+                    <label>No</label>
+                    <input type="radio" placeholder="isCompleted" value="false" name="completed">
+                </div>
+
+                <div>
+                    <input type="submit" value="Add new Todo">
+                </div>
+
+            </form>
+
+
+        </div>
+
+        <div id="comments">
+
+            {{#each todos}}
+
+            <div class="comment">
+
+                <!-- userName must be defined!!! >:( -->
+                <div>{{ this.userName }}</div>
+                <div>{{ this.title }}</div>
+                <div>{{ this.completed }}</div>
+
+            </div>
+
+            {{/each}}
+
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

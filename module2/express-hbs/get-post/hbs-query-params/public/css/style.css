@@ -1,0 +1,26 @@
+header {
+    display: block;
+    background-color: bisque;
+}
+
+header ul,
+footer ul {
+    display: flex;
+}
+
+header ul li,
+header ul li {
+    flex: 1;
+}
+
+footer {
+    display: flex;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    min-height: 60px;
+    background-color: cornsilk;
+    justify-content: center;
+    align-items: center;
+}
