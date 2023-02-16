@@ -1,0 +1,14 @@
+{{!-- views/books/books-list.hbs --}}
+
+<h1>BOOKS</h1>
+
+{{!-- since we passed allTheBooksFromDB as `books`,
+we can iterate over it here with #each--}}
+
+{{#each books}}
+  <div>
+    <h3>{{title}}</h3>
+    <p>By: {{author}}</p>
+    <a target="_blank" href="/books/{{_id}}">See Details</a>
+  </div>
+{{/each}}
