@@ -1,0 +1,14 @@
+{{#unless userInSession.admin}}
+
+<form method="POST" action="/assignAdmin">
+
+  <input type="text" name="password" placeholder="Admin Password">
+  <button type="submit"> Assign Admin Rights</button>
+
+</form>
+
+{{/unless}}
+
+{{#if errorMessage}}
+<p class="error">{{errorMessage}}</p>
+{{/if}}
