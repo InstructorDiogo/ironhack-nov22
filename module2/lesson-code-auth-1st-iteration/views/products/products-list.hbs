@@ -1,0 +1,35 @@
+<div id="products">
+
+  {{#each products}}
+  <div product-id='{{id}}'>
+
+    <a href="/products/{{id}}">{{title}}</a>
+    <p>{{price}}</p>
+
+    <button add product-id="{{id}}">Add</button>
+    <span class='amount'>0</span>
+    <button remove product-id="{{id}}">Remove</button>
+
+  </div>
+
+  <br>
+  {{/each}}
+</div>
+
+<script src="/js/cart.js"></script>
+
+<script>
+
+  window.onload = () => {
+
+    document.querySelectorAll('button[product-id]').forEach(button => {
+      // contains add/remove attribute
+      if (button.getAttribute("add") === "") button.onclick = function() { add(button.getAttribute("product-id")) }
+      else if (button.getAttribute("remove") === "") button.onclick = function() { remove(button.getAttribute("product-id")) }
+    })
+
+    refreshList()
+
+  }
+
+</script>

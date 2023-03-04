@@ -1,0 +1,19 @@
+{{#with product}}
+
+<h1> Editing {{title}} </h1>
+
+<form method="POST" action="/products/{{id}}/edit">
+
+    <label for="title">Title</label>
+    <input type="text" name="title" value="{{title}}">
+    <label for="title">Price</label>
+    <input type="text" name="price" value="{{price}}">
+    <label for="title">Description</label>
+    <textarea rows="4" cols="50" type="text" name="description">{{description}}</textarea>
+
+    <input type="submit" value="Update">
+
+
+</form>
+
+{{/with}}

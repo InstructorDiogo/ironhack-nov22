@@ -1,0 +1,6 @@
+/* public/stylesheets/style.css */
+
+.nav-item{
+  display: flex;
+  align-items: center;
+}

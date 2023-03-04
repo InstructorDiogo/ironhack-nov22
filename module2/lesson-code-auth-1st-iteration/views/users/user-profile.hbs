@@ -1,0 +1,52 @@
+{{!-- views/users/user-profile.hbs --}}
+
+{{!-- {{#if user}}
+<h2>Welcome, {{ user.username }}!</h2>
+<p>This is your profile page my friend!</p>
+<button>
+  <a href="/userProfile">Reload the page</a>
+</button>
+{{else}}
+<p>Still no logged in user, sorry!</p>
+{{/if}} --}}
+
+
+{{!-- the new version, with the session: --}}
+
+{{#if userInSession}}
+<h2>Welcome, {{ userInSession.username }}!</h2>
+<p>This is your profile page my friend!</p>
+<button>
+  <a href="/userProfile">Reload the page</a>
+</button>
+{{else}}
+<p>Still no logged in user, sorry!</p>
+{{/if}}
+
+
+
+<button add product-id="{{userInSession._id}}">Add</button>
+<button remove product-id="{{userInSession._id}}">Remove</button>
+
+
+
+<script>
+
+  let add = (event) => {
+    let id = event.currentTarget.getAttribute('product-id')
+    console.log("adding to the id " + id)
+  }
+
+  let buttons = document.querySelectorAll('button[product-id]')
+
+  buttons.forEach(button => {
+
+    if (button.getAttribute("add") === "")
+    {
+      button.onclick = add
+    }
+
+  })
+
+
+</script>

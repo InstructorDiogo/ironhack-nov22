@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Products App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/userProfile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/adminDashboard">Admin Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <form id="nav-cart" method="GET" action="/cart">
+
+                <input type="hidden" name="ids">
+                <button class="btn btn-primary" type="submit"> Cart </button>
+
+              </form>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <form id="logout-form" action="/logout" method="POST">
+                <button class="btn btn-dark">Logout</button>
+              </form>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!--
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid row">
+
+      <div class="col-md">
+        <a class="navbar-brand" href="/"> Welcome, {{ userInSession.username }} </a>
+      </div>
+
+      <div class="col-md">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/userProfile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/products">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adminDashboard">Admin Dashboard</a>
+            </li>
+            <li class="nav-item">
+
+              <form id="nav-cart" method="GET" action="/cart">
+
+                <input type="hidden" name="ids">
+                <button type="submit"> Cart </button>
+
+              </form>
+            </li>
+            <li class="nav-item">
+              <form id="logout-form" action="/logout" method="POST">
+                <button>Logout</button> <span> | </span>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+-->
+
+  <!--
+
+  <nav>
+    <ul>
+      <li id="to-left">
+        <p><a href="/"> Welcome, {{ userInSession.username }} </a></p>
+      </li>
+      <li id="to-right">
+
+        <form id="logout-form" action="/logout" method="POST">
+          <button>Logout</button> <span> | </span>
+        </form>
+
+        <a href="/userProfile">Profile</a>
+        <span> | </span>
+        <a href="/products">Products</a>
+        <span> | </span>
+
+
+        <form id="nav-cart" method="GET" action="/cart">
+
+          <input type="hidden" name="ids">
+          <button type="submit"> Cart </button>
+
+        </form>
+
+        <a href="/adminDashboard">Admin Dashboard</a>
+
+      </li>
+    </ul>
+  </nav>
+  -->
+
+  {{{body}}}
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+  <script src="/js/script.js"></script>
+  <script src="/js/cart.js"></script>
+
+  <script>
+
+    window.onload = () => {
+
+      console.log(page)
+
+      if (page == "cart" || page == "products-list") {
+        document.querySelectorAll('button[product-id]').forEach(button => {
+          // contains add/remove attribute
+          if (button.getAttribute("add") === "") button.onclick = function () { add(button.getAttribute("product-id")) }
+          else if (button.getAttribute("remove") === "") button.onclick = function () { remove(button.getAttribute("product-id")) }
+        })
+
+        refreshList()
+      }
+      else if (page == "checkout") {
+        refreshList()
+      }
+
+
+      let ids = ""
+      let cart = getCart()
+      cart.forEach((element, index) => {
+        if (index < cart.length - 1) {
+          ids += element.id + ","
+        }
+        else {
+          ids += element.id
+        }
+      })
+
+      if (page == "cart") {
+        document.querySelector(`#checkout-form input[name="ids"]`).value = ids
+      }
+
+      document.querySelector(`#nav-cart input[name="ids"]`).value = ids
+
+    }
+
+  </script>
+
+</body>
+
+</html>

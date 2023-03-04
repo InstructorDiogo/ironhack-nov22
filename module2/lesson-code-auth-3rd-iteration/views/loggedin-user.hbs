@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Products App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/userProfile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/products">Products</a>
+          </li>
+
+
+
+          <li class="nav-item">
+            <a class="nav-link">
+              <form id="nav-cart" method="GET" action="/cart">
+
+                <input type="hidden" name="ids">
+                <button class="btn btn-primary" type="submit"> Cart </button>
+
+              </form>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <form id="logout-form" action="/logout" method="POST">
+                <button class="btn btn-dark">Logout</button>
+              </form>
+            </a>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  {{{body}}}
+
+  <script src="/js/script.js"></script>
+  <script src="/js/cart.js"></script>
+
+  <script>
+
+    let ids = ""
+    getCart().forEach(element => {
+      ids += element.id
+    })
+
+    document.querySelector(`input[name="ids"]`).value = ids
+
+  </script>
+</body>
+
+</html>

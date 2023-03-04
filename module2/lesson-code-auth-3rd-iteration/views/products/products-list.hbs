@@ -1,0 +1,23 @@
+<div id="products">
+
+  {{#each products}}
+  <div product-id='{{id}}'>
+
+    <a href="/products/{{id}}">{{title}}</a>
+    <p>{{price}}</p>
+
+    <button add product-id="{{id}}">Add</button>
+    <span class='amount'>0</span>
+    <button remove product-id="{{id}}">Remove</button>
+
+  </div>
+
+  <br>
+  {{/each}}
+</div>
+
+<script>
+
+  const page = "products-list"
+
+</script>

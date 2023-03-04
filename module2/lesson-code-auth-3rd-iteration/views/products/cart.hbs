@@ -1,0 +1,42 @@
+{{#if products}}
+
+<div id="products">
+
+    {{#each products}}
+    <div product-id='{{id}}'>
+
+        <a href="/products/{{id}}">{{title}}</a>
+        <p>{{price}}</p>
+
+        <button add product-id="{{id}}">Add</button>
+        <span class='amount'>0</span>
+        <button remove product-id="{{id}}">Remove</button>
+
+        Total
+
+    </div>
+
+
+    {{/each}}
+
+    <form id="checkout-form" method="GET" action="/checkout">
+
+        <input type="hidden" name="ids">
+        <button type="submit"> Go To Checkout </button>
+
+    </form>
+
+    <br>
+</div>
+
+<script>
+
+    const page = "cart"
+
+</script>
+
+{{else}}
+
+No products in cart.
+
+{{/if}}

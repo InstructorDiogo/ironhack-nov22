@@ -1,0 +1,45 @@
+<div id="products">
+
+    {{#each products}}
+    <div product-id='{{id}}'>
+
+        <a href="/products/{{id}}">{{title}}</a>
+        <p class="price">{{price}}</p>
+        <span class='amount'>0</span>
+        Combined:
+        <span class='combined-price-product'>0</span>
+
+    </div>
+
+    <br>
+    {{/each}}
+</div>
+
+Total:
+<span class='total-price-product'>0</span>
+
+<form id="complete-order" method="POST" action="/orders/{{userInSession._id}}">
+    <input type="hidden" name="cart">
+    <button class="btn btn-success" type="submit">Complete Order</button>
+</form>
+
+<script>
+
+    const page = "checkout"
+
+    const form = document.getElementById("complete-order")
+    form.onsubmit = (e) => {
+
+        e.preventDefault()
+
+        form.cart.value = JSON.stringify(getCart())
+
+        form.submit()
+
+
+        
+        
+        
+    }
+
+</script>

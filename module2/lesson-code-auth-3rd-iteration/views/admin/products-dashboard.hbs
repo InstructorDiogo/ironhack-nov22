@@ -1,0 +1,25 @@
+<div id="products">
+
+  <a href="/products/add">
+    <button id="add-new-product">Add New Product</button>
+  </a>
+
+  {{#each products}}
+  <div product-id='{{id}}'>
+
+    <h1>{{title}}</h1>
+    <p>{{price}}</p>
+
+    <a href="/products/{{id}}/edit">
+      <button add product-id="{{id}}">Edit</button>
+    </a>
+
+    <a href="/products/{{id}}/delete">
+      <button remove product-id="{{id}}">Remove</button>
+    </a>
+
+  </div>
+
+  <br>
+  {{/each}}
+</div>
