@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Error:", error); // if there's errors...
       });
 
+      
   }
 
   usersGetButton.onclick = () => {

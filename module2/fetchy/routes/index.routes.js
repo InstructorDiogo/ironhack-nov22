@@ -20,13 +20,15 @@ const users =  [
   {id: 5, name: "Hannah"}
 ]
 
-router.get("/users/", (req, res, next) => {
+router.get("/users/:userId", (req, res, next) => {
 
-  User.find().then(users => {
+    res.render("hello")
 
-    res.json(users)
+});
 
-  })
+router.get("/coolestMovie/", (req, res, next) => {
+
+  res.json("The cooolest movie is Titanic.")
 
 });
 
